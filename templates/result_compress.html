@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>문서 압축 결과 이메일 전송 서비스</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='flask01.css')}}">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1>문서 압축 결과 이메일 전송 서비스</h1>
+    <br>
+    <form action="{{ url_for('send_report') }}">
+      <input type="submit" value="이메일 보내기">
+    </form>
+    <br>
+    <p> {{ file_name }} 압축된 보고서를 이메일로 첨부할 수 있습니다. </p>
+  </div>
+</body>
+
+</html>

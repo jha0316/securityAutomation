@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>엑셀 파일 번역 서비스</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='flask.css')}}">
+    <style>
+      .container {
+        margin-top: 50px;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>엑셀 파일 번역 서비스</h2>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file">번역할 파일을 업로드 하세요.</label>
+          <input type="file" class="form-control-file" id="file" name="file">
+        </div>
+        <input type="submit" value="업로드" class="btn btn-primary">
+      </form>
+      <br>
+      <br>
+      <h2>엑셀 파일 압축 서비스</h2>
+      <form action="/compress" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file">압축할 파일을 업로드 하세요.</label>
+          <input type="file" class="form-control-file" id="file" name="file">
+        </div>
+        <input type="submit" value="파일 압축하기" class="btn btn-primary">
+        {% if compressed_file %}
+        <a href="{{url_for('result_compress', file=compressed_file)}}">{{compressed_file}}</a>
+        {% endif %}
+      </form>
+    </div>
+  </body>
+</html>
